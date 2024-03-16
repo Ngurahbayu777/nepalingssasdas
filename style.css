@@ -1,85 +1,102 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,900&display=swap');
-*{
-    font-family: 'Poppins',cursive;
-}
-body{
-    color: azure;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: black;
-}
-.greetings{
-    font-size: 6rem;
-    font-weight: 900;
-}
-.greetings > span{
-    animation: glow 2.5s ease-in-out infinite;
-}
-@keyframes glow{
-    0%, 100%{
-        color: #fff;
-        text-shadow: 0 0 12px #39c6d6, 0 0 50px #39c6d6, 0 0 100px #39c6d6;
-    }
-    10%, 90%{
-        color: #111;
-        text-shadow: none;
-    }
-}
-.greetings > span:nth-child(2){
-    animation-delay: .2s ;
-}
-.greetings > span:nth-child(3){
-    animation-delay: .4s ;
-}
-.greetings > span:nth-child(4){
-    animation-delay: .6s;
-}
-.greetings > span:nth-child(5){
-    animation-delay: .8s;
-}
-.greetings > span:nth-child(6){
-    animation-delay: .10s;
-}
-.greetings > span:nth-child(7){
-    animation-delay: .12s;
-}
-.greetings > span:nth-child(8){
-    animation-delay: .14s;
-}
-.greetings > span:nth-child(9){
-    animation-delay: .16s;
-}
-.greetings > span:nth-child(10){
-    animation-delay: .2s;
+/* Variabel root */
+:root {
+  --warna-bg: rgba(0, 0, 0, .3);
+  --tombol-teks: #fff;
+  --tombol-bingkai: #fff;
+  --bingkai: 18px;
+  --bingkai-kiri: 1.3px solid var(--tombol-bingkai);
+  --bingkai-kanan: 1.3px solid var(--tombol-bingkai);
+  --gaya-font: 'Nunito Sans', sans-serif;
+  --gaya-font2: 'Sono', sans-serif;
+  --gaya-font3: 'Nerko One', cursive;
 }
 
-.description{
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+/* Animasi */
+@keyframes fanim {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 100% 100%; }
+  50% { background-position: 0% 100%; }
+  75% { background-position: 50% 50%; }
+  100% { background-position: 0% 0%; }
 }
 
-.button a{
-    text-decoration: none;
-    font-size: 1rem;
-    color: #111;
+@keyframes jj {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
 }
 
-@media screen and (max-width:574px){
-    .greetings{
-        display: block;
-        font-size: 3rem;
-        font-weight: 500;
-        text-align: center;
-    }
-    .description{
-        font-size: 1rem;
-    }
-    
-    .button a{
-        font-size: .5rem;
-    }
+@keyframes leaves {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(.9); }
+}
+
+/* Seluruh body */
+body {
+  background-color: #000;
+  font-family: var(--gaya-font);
+  padding: 20px 25px;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Link */
+a {
+  text-decoration: none;
+}
+
+/* Before body */
+body::before {
+  content: "";
+  color: white;
+  opacity: .05;
+  font-size: 10px;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 2;
+}
+
+/* Blur pada body */
+#bodyblur {
+  animation: jj 7s infinite;
+  opacity: .25;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .3);
+  transition: all 1s ease;
+}
+
+/* Wallpaper */
+#wallpaper {
+  width: 100%;
+  height: 100%;
+  transform: scale(2);
+  transition: all 1.7s ease;
+}
+
+/* Blockquote */
+blockquote {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(.1);
+  transition: all .7s ease;
+  margin-left: 0;
+  margin-right: 0;
+  color: var(--tombol-teks);
+  text-shadow: 0px 2px 2px rgba(0, 0, 0, .8);
+}
+
+blockquote p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5em;
+  transition: all .5s ease;
+  margin-left: 50px;
+  margin-right: 50px;
 }
